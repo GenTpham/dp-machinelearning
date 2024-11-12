@@ -9,3 +9,12 @@ with st.expander('Data'):
   st.write('**Raw Data**')
   df = pd.read_csv('https://raw.githubusercontent.com/GenTpham/RandomForest/refs/heads/main/weather.csv')
   df
+
+  st.write('**X**')
+  df = df.drop('date', axis = 1)
+  X = df.drop('weather', axis = 1)
+  X
+
+  st.write('**y**')
+  y = df.weather
+  y 
