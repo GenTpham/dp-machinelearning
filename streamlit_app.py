@@ -18,3 +18,5 @@ with st.expander('Data'):
   st.write('**y**')
   y = df.weather
   y 
+with st.expander('Data Visualization'):
+  st.scatter_chart(data = df, x = 'precipitation', y = 'wind', color = 'weather')
