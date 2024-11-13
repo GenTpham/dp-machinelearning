@@ -24,3 +24,8 @@ with st.expander('Data Visualization'):
 # Data preparations
 with st.sidebar:
   st.header('Input features')
+  # precipitation,temp_max,temp_min,wind
+  precipitation = st.slider('precipitation (mm)', 0.0, 5.5, 60.0)
+  temp_max = st.slider('temp_max (℃)', -2.0, 10.0, 40.0)
+  temp_min = st.slider('temp_min (℃)',-10.0, 10.0, 20.0)
+  wind = st.slider('wind (km/h)', 0.0, 10.0, 20.0)
