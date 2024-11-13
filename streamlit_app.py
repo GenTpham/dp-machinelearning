@@ -31,12 +31,12 @@ with st.sidebar:
   wind = st.slider('wind (km/h)', 0.0, 20.0, 10.0)
 
   # Create a DataFrame for the input features
-  data = {'precipitation', precipitation,
-          'temp_max', temp_max,
-          'temp_min', temp_min,
-          'wind', wind}
+  data = {'precipitation': precipitation,
+          'temp_max': temp_max,
+          'temp_min': temp_min,
+          'wind': wind}
   input_df = pd.DataFrame(data, index =[0])
+  input_weather = pd.concat([input_df, X], axis = 0)
 
-input_df
-
+input_weather
 
