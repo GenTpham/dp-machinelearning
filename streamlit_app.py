@@ -20,3 +20,7 @@ with st.expander('Data'):
   y 
 with st.expander('Data Visualization'):
   st.scatter_chart(data = df, x = 'precipitation', y = 'wind', color = 'weather')
+
+# Data preparations
+with st.sidebar:
+  st.header('Input features')
