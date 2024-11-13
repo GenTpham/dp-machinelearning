@@ -29,3 +29,4 @@ with st.sidebar:
   temp_max = st.slider('temp_max (℃)', -2, 10, 40)
   temp_min = st.slider('temp_min (℃)',-10, 10, 20)
   wind = st.slider('wind (km/h)', 0, 10, 20)
+  age = st.slider("How old are you?", 0, 130, 25)
