@@ -25,7 +25,7 @@ with st.expander('Data Visualization'):
 with st.sidebar:
   st.header('Input features')
   # precipitation,temp_max,temp_min,wind
-  precipitation = st.slider('precipitation (mm)', 0.0, 5.5, 60.0)
-  temp_max = st.slider('temp_max (℃)', -2.0, 10.0, 40.0)
-  temp_min = st.slider('temp_min (℃)',-10.0, 10.0, 20.0)
-  wind = st.slider('wind (km/h)', 0.0, 10.0, 20.0)
+  precipitation = st.slider('precipitation (mm)', 0, 5, 60)
+  temp_max = st.slider('temp_max (℃)', -2, 10, 40)
+  temp_min = st.slider('temp_min (℃)',-10, 10, 20)
+  wind = st.slider('wind (km/h)', 0, 10, 20)
