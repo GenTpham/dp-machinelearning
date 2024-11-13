@@ -29,3 +29,14 @@ with st.sidebar:
   temp_max = st.slider('temp_max (℃)', -2.0, 40.0, 10.0)
   temp_min = st.slider('temp_min (℃)',-10.0, 20.0, 10.0)
   wind = st.slider('wind (km/h)', 0.0, 20.0, 10.0)
+
+  # Create a DataFrame for the input features
+  data = {'precipitation', precipitation,
+          'temp_max', temp_max,
+          'temp_min', temp_min,
+          'wind', wind}
+  input_df = pd.DataFrame(data, index =[0])
+
+input_df
+
+
