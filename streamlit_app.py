@@ -38,6 +38,12 @@ with st.sidebar:
   input_df = pd.DataFrame(data, index =[0])
   input_weather = pd.concat([input_df, X], axis = 0)
 
-input_df
-#input_weather
+with st.expander('Input features')
+  st.write('**Input weather**')
+  input_df
+  st.write('**Combined weather data**')
+  input_weather
+
+
+
 
