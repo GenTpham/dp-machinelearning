@@ -37,7 +37,12 @@ with st.sidebar:
           'wind': wind}
   input_df = pd.DataFrame(data, index =[0])
   input_weather = pd.concat([input_df, X_raw], axis = 0)
-
+  
+with st.expander('Input features'):
+  st.write('**Input weather**')
+  input_df
+  st.write('**Combined weather data**')
+  input_weather
 # Encode Y
 target_mapper = {'drizzle': 0,
                   'fog': 1,
@@ -51,11 +56,11 @@ y = y_raw.apply(target_encode)
 y
 y_raw
 
-with st.expander('Input features'):
-  st.write('**Input weather**')
-  input_df
-  st.write('**Combined weather data**')
-  input_weather
+with st.expander('Data preparation'):
+  st.write('**Encoded weather**')
+  y
+  
+
 
 
 
