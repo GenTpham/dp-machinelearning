@@ -12,12 +12,12 @@ with st.expander('Data'):
 
   st.write('**X**')
   df = df.drop('date', axis = 1)
-  X = df.drop('weather', axis = 1)
-  X
+  X_raw = df.drop('weather', axis = 1)
+  X_raw
 
   st.write('**y**')
-  y = df.weather
-  y 
+  y_raw = df.weather
+  y_raw 
 with st.expander('Data Visualization'):
   st.scatter_chart(data = df, x = 'precipitation', y = 'wind', color = 'weather')
 
@@ -36,7 +36,16 @@ with st.sidebar:
           'temp_min': temp_min,
           'wind': wind}
   input_df = pd.DataFrame(data, index =[0])
-  input_weather = pd.concat([input_df, X], axis = 0)
+  input_weather = pd.concat([input_df, X_raw], axis = 0)
+
+# Encode Y
+target_mapper = {'drizzle': 0,
+                  'fog': 1,
+                  'rain': 2,
+                  'snow': 3,
+                  'sun': 4}
+def target_encode(val):
+  return target_mapper[val]
 
 with st.expander('Input features'):
   st.write('**Input weather**')
