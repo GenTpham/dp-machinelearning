@@ -79,9 +79,26 @@ df_prediction_proba.rename(columns = {'drizzle': 0,
                                         'snow': 3,
                                         'sun': 4})
 
-df_prediction_proba
-
 st.subheader('Predicted Weather')
+st.dataframe(df_prediction_proba,
+              column_config = {
+                'drizzle': st.column_config.ProgressColumn(
+                  'drizzle',
+                  format ='%f'
+                  width = 'medium',
+                  min_value= 0,
+                  max_value = 1
+                ),
+                'fog': st.column_config.ProgressColumn(
+                  'fog',
+                  format ='%f'
+                  width = 'medium',
+                  min_value= 0,
+                  max_value = 1
+                ),
+                
+              })
+
 weather_types = np.array(['drizzle', 'fog', 'rain', 'snow', 'sun'])
 st.success(str(weather_types[prediction][0]))
 
