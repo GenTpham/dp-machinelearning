@@ -79,6 +79,8 @@ df_prediction_proba.rename(columns = {'drizzle': 0,
                                         'snow': 3,
                                         'sun': 4})
 
+df_prediction_proba
+
 st.subheader('Predicted Weather')
 weather_types = np.array(['drizzle', 'fog', 'rain', 'snow', 'sun'])
 st.success(str(weather_types[prediction][0]))
