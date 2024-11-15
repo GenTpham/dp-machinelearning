@@ -45,6 +45,7 @@ with st.expander('Input features'):
   st.write('**Combined weather data**')
   input_weather
 
+X = input_weather[1:]
 input_row = input_weather[:1]
 # Encode Y
 target_mapper = {'drizzle': 0,
@@ -63,7 +64,7 @@ with st.expander('Data preparation'):
   
 # Model Training
 clf = RandomForestClassifier()
-clf.fit(X_raw, y)
+clf.fit(X, y)
 
 # Make Predictions
 prediction = clf.predict(input_row)
