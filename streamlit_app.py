@@ -70,7 +70,7 @@ clf.fit(X, y)
 prediction = clf.predict(input_row)
 prediction_proba = clf.predict_proba(input_row)
 
-prediction_proba
+prediction_proba.columns = ['drizzle', 'fog', 'rain', 'snow', 'sun']
 
 
 
