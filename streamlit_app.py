@@ -77,6 +77,7 @@ df_prediction_proba.rename(columns = {'drizzle': 0,
                                         'rain': 2,
                                         'snow': 3,
                                         'sun': 4})
+prediction_proba
 df_prediction_proba
 
 
