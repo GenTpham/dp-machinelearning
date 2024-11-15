@@ -47,6 +47,9 @@ target_mapper = {'drizzle': 0,
 def target_encode(val):
   return target_mapper[val]
 
+y = y_raw.apply(target_encode)
+y
+
 with st.expander('Input features'):
   st.write('**Input weather**')
   input_df
