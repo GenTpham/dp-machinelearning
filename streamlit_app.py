@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
 
 st.title('🎁 Machine Learning App')
 
@@ -43,6 +44,8 @@ with st.expander('Input features'):
   input_df
   st.write('**Combined weather data**')
   input_weather
+
+input_row = input_weather[:1]
 # Encode Y
 target_mapper = {'drizzle': 0,
                   'fog': 1,
@@ -58,7 +61,15 @@ with st.expander('Data preparation'):
   st.write('**Encoded weather**')
   y
   
+# Model Training
+clf = RandomForestClassifier()
+clf.fit(X_raw, y)
 
+# Make Predictions
+prediction = clf.predict(input_row)
+prediction_proba = clf.predict_proba(input_row)
+
+prediction_proba
 
 
 
