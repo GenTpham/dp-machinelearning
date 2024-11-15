@@ -84,35 +84,35 @@ st.dataframe(df_prediction_proba,
               column_config = {
                 'drizzle': st.column_config.ProgressColumn(
                   'drizzle',
-                  format ='%f'
+                  format ='%f',
                   width = 'medium',
                   min_value= 0,
                   max_value = 1
                 ),
                 'fog': st.column_config.ProgressColumn(
                   'fog',
-                  format ='%f'
+                  format ='%f',
                   width = 'medium',
                   min_value= 0,
                   max_value = 1
                 ),
                 'rain': st.column_config.ProgressColumn(
                   'rain',
-                  format ='%f'
+                  format ='%f',
                   width = 'medium',
                   min_value= 0,
                   max_value = 1
                 ),
                 'snow': st.column_config.ProgressColumn(
                   'snow',
-                  format ='%f'
+                  format ='%f',
                   width = 'medium',
                   min_value= 0,
                   max_value = 1
                 ),
                 'sun': st.column_config.ProgressColumn(
                   'sun',
-                  format ='%f'
+                  format ='%f',
                   width = 'medium',
                   min_value= 0,
                   max_value = 1
