@@ -96,8 +96,28 @@ st.dataframe(df_prediction_proba,
                   min_value= 0,
                   max_value = 1
                 ),
-                
-              })
+                'rain': st.column_config.ProgressColumn(
+                  'rain',
+                  format ='%f'
+                  width = 'medium',
+                  min_value= 0,
+                  max_value = 1
+                ),
+                'snow': st.column_config.ProgressColumn(
+                  'snow',
+                  format ='%f'
+                  width = 'medium',
+                  min_value= 0,
+                  max_value = 1
+                ),
+                'sun': st.column_config.ProgressColumn(
+                  'sun',
+                  format ='%f'
+                  width = 'medium',
+                  min_value= 0,
+                  max_value = 1
+                ),
+              }, hide_index = True)
 
 weather_types = np.array(['drizzle', 'fog', 'rain', 'snow', 'sun'])
 st.success(str(weather_types[prediction][0]))
