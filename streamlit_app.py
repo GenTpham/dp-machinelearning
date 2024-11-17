@@ -3,9 +3,9 @@ import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 
-st.title('🎁 Machine Learning App')
+st.title('⛅ Dựa báo thời tiết')
 
-st.info('This is app builds a machine learning model!')
+st.info('Trang web ứng dụng mô hình máy học vào dự báo thời tiết bằng thuật toán Random Forest')
 
 with st.expander('Data'):
   st.write('**Raw Data**')
@@ -20,7 +20,7 @@ with st.expander('Data'):
   st.write('**y**')
   y_raw = df.weather
   y_raw 
-with st.expander('Data Visualization'):
+with st.expander('Trực quan hóa dữ liệu'):
   st.scatter_chart(data = df, x = 'precipitation', y = 'wind', color = 'weather')
 
 # Data preparations
@@ -79,7 +79,7 @@ df_prediction_proba.rename(columns = {'drizzle': 0,
                                         'snow': 3,
                                         'sun': 4})
 
-st.subheader('Predicted Weather')
+st.subheader('Dự báo thời tiết')
 st.dataframe(df_prediction_proba,
               column_config = {
                 'drizzle': st.column_config.ProgressColumn(
