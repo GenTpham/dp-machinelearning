@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score, classification_report
+from sklearn.metrics import accuracy_score
 
 # Cấu hình trang
 st.set_page_config(
@@ -14,21 +14,7 @@ st.set_page_config(
 
 # Tiêu đề và giới thiệu
 st.title('⛅ Dự báo Thời tiết')
-st.markdown("""
-    <style>
-    .main {
-        padding: 2rem;
-    }
-    .stProgress > div > div > div > div {
-        background-color: #4CAF50;
-    }
-    </style>
-    """, unsafe_allow_html=True)
-
-col1, col2 = st.columns([2, 1])
-
-with col1:
-    st.info('Ứng dụng sử dụng mô hình máy học Random Forest để dự báo thời tiết dựa trên các thông số đầu vào.')
+st.info('Ứng dụng sử dụng mô hình máy học Random Forest để dự báo thời tiết dựa trên các thông số đầu vào.')
 
 # Load và xử lý dữ liệu
 @st.cache_data
@@ -171,22 +157,26 @@ with tab3:
     
     predicted_weather = weather_types[prediction][0]
     
-    col1, col2 = st.columns([1, 2])
+    # Hiển thị dự báo chính
+    st.markdown(f"""
+    ### Dự báo: {weather_icons[predicted_weather]} {predicted_weather.title()}
+    #### Độ chính xác tổng thể của mô hình: {accuracy:.2%}
+    """)
     
-    with col1:
-        st.markdown(f"""
-        ### Dự báo: {weather_icons[predicted_weather]} {predicted_weather.title()}
-        #### Độ chính xác tổng thể của mô hình: {accuracy:.2%}
-        """)
+    # Hiển thị xác suất dự báo
+    st.write("**Xác suất cho từng loại thời tiết:**")
     
-    with col2:
-        # Hiển thị xác suất dự báo
-        proba_df = pd.DataFrame(prediction_proba, 
-                              columns=[f"{weather_icons[w]} {w.title()}" for w in weather_types])
-        
-        st.write("**Xác suất cho từng loại thời tiết:**")
-        st.dataframe(proba_df.style.format("{:.2%}").background_gradient(cmap='Blues'),
-                    hide_index=True)
-
+    # Tạo DataFrame cho xác suất
+    proba_df = pd.DataFrame(
+        prediction_proba,
+        columns=[f"{weather_icons[w]} {w.title()}" for w in weather_types]
+    )
+    
+    # Hiển thị xác suất dạng bảng
+    st.dataframe(
+        proba_df.applymap(lambda x: f"{x:.2%}"),
+        hide_index=True
+    )
+    
     # Hiển thị biểu đồ xác suất
     st.bar_chart(proba_df.T)
