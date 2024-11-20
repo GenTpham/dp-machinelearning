@@ -86,7 +86,7 @@ with st.sidebar:
     temp_min = st.slider(
         'Nhiệt độ thấp nhất (℃)',
         min_value=-10.0,
-        max_value=20.0,
+        max_value=30.0,
         value=10.0,
         help="Nhiệt độ thấp nhất trong ngày"
     )
